@@ -112,6 +112,6 @@ nnoremap <leader>c <Plug>CommentaryLine
 " Let ctrlp have up to 30 results.
 let g:ctrlp_max_height = 30
 
-colorscheme codedark
+silent! colorscheme codedark123
 
 
