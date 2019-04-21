@@ -158,12 +158,11 @@ export GEM_HOME=$HOME/gems
 export PATH=$HOME/gems/bin:$PATH
 
 # Start in WSL and fix XTERM
-if [[ "$PWD" =~ /c/Users ]]; then
+if [[ $HOSTNAME = 'luna' ]]; then
     alias chrome="/mnt/c/Program\ Files\ \(x86\)/Google/Chrome/Application/chrome.exe"
     alias code="/mnt/c/Users/cjtai/AppData/Local/Programs/Microsoft\ VS\ Code/Code.exe"
     alias ffs="/mnt/c/Program\ Files/FreeFileSync/FreeFileSync.exe"
     export DISPLAY=localhost:0.0
-    cd ~ ;
 fi
 
 # added by Anaconda3 installer
