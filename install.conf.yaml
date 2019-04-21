@@ -4,9 +4,12 @@
 
 - clean: ['~']
 
+- shell:
+  - mkdir -p ~/.config
+
 - link:
-    ~/.dotfiles: ''
     ~/.bashrc: bashrc
+    ~/.bash_profile: bash_profile
     ~/.gitconfig: gitconfig
     ~/.vim: vim
     ~/.vimrc: vimrc

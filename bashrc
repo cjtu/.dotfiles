@@ -1,6 +1,4 @@
-# ~/.bashrc: executed by bash(1) for non-login shells.
-# see /usr/share/doc/bash/examples/startup-files (in the package bash-doc)
-# for examples
+# ~/.bashrc
 
 # If not running interactively, don't do anything
 case $- in
@@ -8,8 +6,17 @@ case $- in
       *) return;;
 esac
 
+# Source global definitions
+if [ -f /etc/bashrc ]; then
+        . /etc/bashrc
+fi
+
+# bring in cluster bashrc
+if [ -f /common/conf/bashrc ]; then
+        . /common/conf/bashrc
+fi
+
 # don't put duplicate lines or lines starting with space in the history.
-# See bash(1) for more options
 HISTCONTROL=ignoreboth
 
 # append to the history file, don't overwrite it
@@ -19,13 +26,8 @@ shopt -s histappend
 HISTSIZE=1000
 HISTFILESIZE=2000
 
-# check the window size after each command and, if necessary,
-# update the values of LINES and COLUMNS.
+# update the window size after each command
 shopt -s checkwinsize
-
-# If set, the pattern "**" used in a pathname expansion context will
-# match all files and zero or more directories and subdirectories.
-#shopt -s globstar
 
 # make less more friendly for non-text input files, see lesspipe(1)
 [ -x /usr/bin/lesspipe ] && eval "$(SHELL=/bin/sh lesspipe)"
@@ -76,9 +78,6 @@ esac
 if [ -x /usr/bin/dircolors ]; then
     test -r ~/.dircolors && eval "$(dircolors -b ~/.dircolors)" || eval "$(dircolors -b)"
     alias ls='ls --color=auto'
-    #alias dir='dir --color=auto'
-    #alias vdir='vdir --color=auto'
-
     alias grep='grep --color=auto'
     alias fgrep='fgrep --color=auto'
     alias egrep='egrep --color=auto'
@@ -99,15 +98,12 @@ alias alert='notify-send --urgency=low -i "$([ $? = 0 ] && echo terminal || echo
 # Alias definitions.
 # You may want to put all your additions into a separate file like
 # ~/.bash_aliases, instead of adding them here directly.
-# See /usr/share/doc/bash-doc/examples in the bash-doc package.
 
 if [ -f ~/.bash_aliases ]; then
     . ~/.bash_aliases
 fi
 
 # enable programmable completion features (you don't need to enable
-# this, if it's already enabled in /etc/bash.bashrc and /etc/profile
-# sources /etc/bash.bashrc).
 if ! shopt -oq posix; then
   if [ -f /usr/share/bash-completion/bash_completion ]; then
     . /usr/share/bash-completion/bash_completion
@@ -120,6 +116,7 @@ fi
 export SSH_ID="ctaiudovicic"
 export TIU="10.11.11.11"
 export MONSOON="monsoon.hpc.nau.edu"
+export DIVINER="luna1.diviner.ucla.edu"
 
 # aliases
 alias cdp='cd ~/projects'
@@ -131,10 +128,11 @@ alias env1='source activate thermal_corr'
 alias envq='source deactivate'
 
 alias startjupyter='jupyter notebook'
+
 alias ssh='ssh -XY'
 alias sshtiu='ssh ${SSH_ID}@${TIU}'
 alias sshmonsoon='ssh cjt347@${MONSOON}'
-alias sshdiviner='ssh Cjtu@luna1.diviner.ucla.edu'
+alias sshdiviner='ssh Cjtu@${DIVINER}'
 alias jupytertiu='ssh -N -L 8080:localhost:8080 ${SSH_ID}@${TIU}'
 
 # Compiler options
@@ -143,23 +141,20 @@ alias gccpt='gcc -pthread'
 alias gccwarn='gccpt -std=c99 -pedantic -Wall -Wextra'
 alias gccanal='gccwarn -Wduplicated-cond -Wduplicated-branches -Wlogical-op -Wrestrict -Wnull-dereference -Wjump-misses-init -Wdouble-promotion -Wshadow -Wformat=2'
 
-# WSL program hard links
-alias chrome="/mnt/c/Program\ Files\ \(x86\)/Google/Chrome/Application/chrome.exe"
-alias code="/mnt/c/Users/cjtai/AppData/Local/Programs/Microsoft\ VS\ Code/Code.exe"
-alias ffs="/mnt/c/Program\ Files/FreeFileSync/FreeFileSync.exe"
-
-#source ~/git-completion.bash
+# Ruby
 export GEM_HOME=$HOME/gems
 export PATH=$HOME/gems/bin:$PATH
 
 # Path
 export PATH="$PATH:~/.scripts"
+export PATH="$PATH:$HOME/bin"
 
-# WSL X-TERM
-export DISPLAY=localhost:0.0
-
-# Start in WSL
+# Start in WSL and fix XTERM
 if [[ "$PWD" =~ /c/Users ]]; then
+    alias chrome="/mnt/c/Program\ Files\ \(x86\)/Google/Chrome/Application/chrome.exe"
+    alias code="/mnt/c/Users/cjtai/AppData/Local/Programs/Microsoft\ VS\ Code/Code.exe"
+    alias ffs="/mnt/c/Program\ Files/FreeFileSync/FreeFileSync.exe"
+    export DISPLAY=localhost:0.0
     cd ~ ;
 fi
 
