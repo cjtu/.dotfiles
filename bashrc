@@ -112,22 +112,31 @@ if ! shopt -oq posix; then
   fi
 fi
 
+# environment variables
+export INPUTRC="~/.inputrc"
+alias davinci="davinci -l ~/.dvlog"
+export HISTIGNORE="&:ls:[bf]g:d[fu]:exit"
+export CDPATH='.:~'
+
 # variables
 export SSH_ID="ctaiudovicic"
 export TIU="10.11.11.11"
 export MONSOON="monsoon.hpc.nau.edu"
 export DIVINER="luna1.diviner.ucla.edu"
 
-# aliases
+# aliasesi
+alias chrome='~/bin/opt/google/chrome/google-chrome'
 alias cdp='cd ~/projects'
 alias cdc='cd /mnt/c/Users/cjtai/'
 alias g=git
-alias vpn='sudo openvpn --config /etc/openvpn/nau_mars_vpn.ovpn'
+#alias vpn='sudo openvpn --config /etc/openvpn/nau_mars_vpn.ovpn'
 alias serve='bundle exec jekyll serve'
-alias env1='source activate thermal_corr'
+alias env1='source activate env1'
+alias env2='source activate thermal_corr'
 alias envq='source deactivate'
 
-alias startjupyter='jupyter notebook'
+alias nb='jupyter notebook'
+alias nbserver='env1; jupyter notebook --no-browser --port=8080'
 
 alias ssh='ssh -XY'
 alias sshtiu='ssh ${SSH_ID}@${TIU}'
@@ -141,13 +150,12 @@ alias gccpt='gcc -pthread'
 alias gccwarn='gccpt -std=c99 -pedantic -Wall -Wextra'
 alias gccanal='gccwarn -Wduplicated-cond -Wduplicated-branches -Wlogical-op -Wrestrict -Wnull-dereference -Wjump-misses-init -Wdouble-promotion -Wshadow -Wformat=2'
 
-# Ruby
-export GEM_HOME=$HOME/gems
-export PATH=$HOME/gems/bin:$PATH
-
 # Path
+export PATH="/nfs/software/davinci_install/share/davinci/library/bin:$PATH"
 export PATH="$PATH:~/.scripts"
 export PATH="$PATH:$HOME/bin"
+export GEM_HOME=$HOME/gems
+export PATH=$HOME/gems/bin:$PATH
 
 # Start in WSL and fix XTERM
 if [[ "$PWD" =~ /c/Users ]]; then
@@ -157,6 +165,9 @@ if [[ "$PWD" =~ /c/Users ]]; then
     export DISPLAY=localhost:0.0
     cd ~ ;
 fi
+
+# added by Anaconda3 installer
+export PATH="/home/ctaiudovicic/anaconda3/bin:$PATH"
 
 # added by Anaconda3 5.3.1 installer
 # >>> conda init >>>

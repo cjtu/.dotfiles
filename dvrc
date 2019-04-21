@@ -1,0 +1,33 @@
+VERBOSE=3
+SCALE=10
+
+define display() {
+	display($1)
+}
+
+source("/nfs/software/davinci_install/share/davinci/library/library_linux.dvrc")
+plot("set mouse")
+verbose=3
+
+#debugging modules
+putenv("DV_MOD_PATH","/nfs/software/davinci_install/lib/davinci/")
+insmod("isis3")
+
+putenv("EDITOR","vim")
+putenv("DV_VIEWER","xv")
+
+putenv("DV_THM_DB_USER","davinci")
+putenv("DV_THM_DB_PASS","themis-team")
+putenv("GPLOT_TERM","qt")
+
+putenv("DV_TIMEZONE", "-7")
+
+
+# source it up
+putenv("LV_PATH", "~/projects/lunar_volatiles")
+putenv("CODE_PATH", $LV_PATH+"/code")
+putenv("DATA_PATH", $LV_PATH+"/data/")
+putenv("TEST_PATH", $LV_PATH+"/testdata/")
+source($CODE_PATH+"/m3_refl.dav")
+source($CODE_PATH+"/TI_scripts.dav")
+source($CODE_PATH+"/get_gdr.dav")

@@ -6,13 +6,18 @@
 
 - shell:
   - mkdir -p ~/.config
+  - mkdir -p ~/.vim
 
 - link:
     ~/.bashrc: bashrc
     ~/.bash_profile: bash_profile
     ~/.gitconfig: gitconfig
-    ~/.vim: vim
+    ~/.dvrc: dvrc
     ~/.vimrc: vimrc
+    ~/.vim/: 
+      glob: true
+      path: vim/*
+      relink: true
     ~/.config/:
       glob: true
       path: config/*
