@@ -58,12 +58,23 @@ if [ -n "$force_color_prompt" ]; then
     fi
 fi
 
+if [[ $TERM =~ "256color" ]]; then
+    # Host colors between 16 and 256, but only grayscale after 201
+    #host_color="38;5;$((16 + $(hostname | cksum | cut -c1-3) % 216))";
+    host_color="38;5;$((16 + 6 * ($(hostname | cksum | cut -c1-3) % 12)))";
+
+else
+    host_color="1;$((31 + $(hostname | cksum | cut -c1-3) % 6))";
+fi
+
 if [ "$color_prompt" = yes ]; then
-    PS1='${debian_chroot:+($debian_chroot)}\[\033[01;32m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\w\[\033[00m\]\$ '
+    PS1='${debian_chroot:+($debian_chroot)}\[\033[${host_color}m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\w\[\033[00m\]\$ '
+#    PS1='${debian_chroot:+($debian_chroot)}\[\033[01;32m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\w\[\033[00m\]\$ '
 else
     PS1='${debian_chroot:+($debian_chroot)}\u@\h:\w\$ '
 fi
-unset color_prompt force_color_prompt
+unset color_prompt force_color_prompt 
+
 
 # If this is an xterm set the title to user@host:dir
 case "$TERM" in
