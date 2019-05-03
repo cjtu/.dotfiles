@@ -60,8 +60,9 @@ fi
 
 if [[ $TERM =~ "256color" ]]; then
     # Host colors between 16 and 256, but only grayscale after 201
+    host_color="38;5;$((16 + 72 + $(hostname | cksum | cut -c1-3) % 216-72))";
     #host_color="38;5;$((16 + $(hostname | cksum | cut -c1-3) % 216))";
-    host_color="38;5;$((16 + 6 * ($(hostname | cksum | cut -c1-3) % 12)))";
+    #host_color="38;5;$((16 + 12 * ($(hostname | cksum | cut -c1-3) % 12)))";
 
 else
     host_color="1;$((31 + $(hostname | cksum | cut -c1-3) % 6))";
@@ -139,6 +140,7 @@ export DIVINER="luna1.diviner.ucla.edu"
 alias chrome='~/bin/opt/google/chrome/google-chrome'
 alias cdp='cd ~/projects'
 alias cdc='cd /mnt/c/Users/cjtai/'
+alias cda='cd /common/contrib/classroom/ast520/tess_batman'
 alias g=git
 #alias vpn='sudo openvpn --config /etc/openvpn/nau_mars_vpn.ovpn'
 alias serve='bundle exec jekyll serve'
@@ -167,6 +169,10 @@ export PATH="$PATH:~/.scripts"
 export PATH="$PATH:$HOME/bin"
 export GEM_HOME=$HOME/gems
 export PATH=$HOME/gems/bin:$PATH
+
+# Monsoon aliases
+alias js="jobstats -u cjt347"
+alias sq="squeue -u cjt347"
 
 # Start in WSL and fix XTERM
 if [[ $HOSTNAME = 'luna' ]]; then
