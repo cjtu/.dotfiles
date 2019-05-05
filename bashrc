@@ -133,10 +133,12 @@ export CDPATH='.:~'
 # variables
 export SSH_ID="ctaiudovicic"
 export TIU="10.11.11.11"
-export MONSOON="monsoon.hpc.nau.edu"
+export MONSOON="monsoon.hpc.nau.edu"i
+export RAIN="rain.hpc.nau.edu"
+export DTN="dtn1.hpc.nau.edu"
 export DIVINER="luna1.diviner.ucla.edu"
 
-# aliasesi
+# aliases
 alias chrome='~/bin/opt/google/chrome/google-chrome'
 alias cdp='cd ~/projects'
 alias cdc='cd /mnt/c/Users/cjtai/'
@@ -154,6 +156,8 @@ alias nbserver='env1; jupyter notebook --no-browser --port=8080'
 alias ssh='ssh -XY'
 alias sshtiu='ssh ${SSH_ID}@${TIU}'
 alias sshmonsoon='ssh cjt347@${MONSOON}'
+alias sshrain='ssh cjt347@${RAIN}'
+alias sshdtn='ssh cjt347@${DTN}'
 alias sshdiviner='ssh Cjtu@${DIVINER}'
 alias jupytertiu='ssh -N -L 8080:localhost:8080 ${SSH_ID}@${TIU}'
 
