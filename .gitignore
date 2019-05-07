@@ -1,3 +1,5 @@
 # Ignore bundles except Vundle.vim
+Code
+Cache/
 /vim/bundle/*
 !/vim/bundle/Vundle.vim/

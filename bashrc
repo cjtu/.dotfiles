@@ -133,7 +133,7 @@ export CDPATH='.:~'
 # variables
 export SSH_ID="ctaiudovicic"
 export TIU="10.11.11.11"
-export MONSOON="monsoon.hpc.nau.edu"i
+export MONSOON="monsoon.hpc.nau.edu"
 export RAIN="rain.hpc.nau.edu"
 export DTN="dtn1.hpc.nau.edu"
 export DIVINER="luna1.diviner.ucla.edu"
@@ -143,6 +143,7 @@ alias chrome='~/bin/opt/google/chrome/google-chrome'
 alias cdp='cd ~/projects'
 alias cdc='cd /mnt/c/Users/cjtai/'
 alias cda='cd /common/contrib/classroom/ast520/tess_batman'
+alias cdd='cd /nfs/data/'
 alias g=git
 #alias vpn='sudo openvpn --config /etc/openvpn/nau_mars_vpn.ovpn'
 alias serve='bundle exec jekyll serve'

@@ -1,8 +1,10 @@
 {
     "telemetry.machineId": "b20e98cbb0a97f9b5fad198ebada024f6855c93eda854805d127de5be1d99404",
     "openedPathsList": {
-        "workspaces2": [
-            "file:///home/cjtu"
+        "workspaces3": [
+            "file:///home/ctaiudovicic/projects/lunar_volatiles",
+            "file:///home/ctaiudovicic/projects/references",
+            "file:///home/ctaiudovicic/projects/cs599/assignments/project"
         ],
         "files2": []
     },
@@ -43,6 +45,43 @@
                                 {
                                     "id": "workbench.action.reopenClosedEditor",
                                     "label": "&&Reopen Closed Editor"
+                                },
+                                {
+                                    "id": "vscode.menubar.separator"
+                                },
+                                {
+                                    "id": "openRecentFolder",
+                                    "uri": {
+                                        "$mid": 1,
+                                        "fsPath": "/home/ctaiudovicic/projects/cs599/assignments/project",
+                                        "external": "file:///home/ctaiudovicic/projects/cs599/assignments/project",
+                                        "path": "/home/ctaiudovicic/projects/cs599/assignments/project",
+                                        "scheme": "file"
+                                    },
+                                    "enabled": true,
+                                    "label": "~/projects/cs599/assignments/project"
+                                },
+                                {
+                                    "id": "openRecentFolder",
+                                    "uri": {
+                                        "$mid": 1,
+                                        "external": "file:///home/ctaiudovicic/projects/lunar_volatiles",
+                                        "path": "/home/ctaiudovicic/projects/lunar_volatiles",
+                                        "scheme": "file"
+                                    },
+                                    "enabled": true,
+                                    "label": "~/projects/lunar_volatiles"
+                                },
+                                {
+                                    "id": "openRecentFolder",
+                                    "uri": {
+                                        "$mid": 1,
+                                        "external": "file:///home/ctaiudovicic/projects/references",
+                                        "path": "/home/ctaiudovicic/projects/references",
+                                        "scheme": "file"
+                                    },
+                                    "enabled": true,
+                                    "label": "~/projects/references"
                                 },
                                 {
                                     "id": "vscode.menubar.separator"
@@ -92,7 +131,8 @@
                     },
                     {
                         "id": "workbench.action.toggleAutoSave",
-                        "label": "A&&uto Save"
+                        "label": "A&&uto Save",
+                        "checked": true
                     },
                     {
                         "id": "",
@@ -144,8 +184,7 @@
                     },
                     {
                         "id": "workbench.action.files.revert",
-                        "label": "Re&&vert File",
-                        "enabled": false
+                        "label": "Re&&vert File"
                     },
                     {
                         "id": "workbench.action.closeActiveEditor",
@@ -243,7 +282,7 @@
                         "label": "&&Select All"
                     },
                     {
-                        "id": "editor.action.smartSelect.grow",
+                        "id": "editor.action.smartSelect.expand",
                         "label": "&&Expand Selection"
                     },
                     {
@@ -410,10 +449,6 @@
                                     "label": "&&Single"
                                 },
                                 {
-                                    "id": "workbench.action.toggleCenteredLayout",
-                                    "label": "&&Centered"
-                                },
-                                {
                                     "id": "workbench.action.editorLayoutTwoColumns",
                                     "label": "&&Two Columns"
                                 },
@@ -523,13 +558,16 @@
                 "items": [
                     {
                         "id": "workbench.action.navigateBack",
-                        "label": "&&Back",
-                        "enabled": false
+                        "label": "&&Back"
                     },
                     {
                         "id": "workbench.action.navigateForward",
                         "label": "&&Forward",
                         "enabled": false
+                    },
+                    {
+                        "id": "workbench.action.navigateToLastEditLocation",
+                        "label": "&&Last Edit Location"
                     },
                     {
                         "id": "vscode.menubar.separator"
@@ -627,12 +665,15 @@
                         "label": "Go to &&File..."
                     },
                     {
-                        "id": "workbench.action.gotoSymbol",
-                        "label": "Go to &&Symbol in File..."
-                    },
-                    {
                         "id": "workbench.action.showAllSymbols",
                         "label": "Go to Symbol in &&Workspace..."
+                    },
+                    {
+                        "id": "vscode.menubar.separator"
+                    },
+                    {
+                        "id": "workbench.action.gotoSymbol",
+                        "label": "Go to &&Symbol in File..."
                     },
                     {
                         "id": "editor.action.goToDeclaration",
@@ -647,8 +688,37 @@
                         "label": "Go to &&Implementation"
                     },
                     {
+                        "id": "vscode.menubar.separator"
+                    },
+                    {
                         "id": "workbench.action.gotoLine",
-                        "label": "Go to &&Line..."
+                        "label": "Go to &&Line/Column..."
+                    },
+                    {
+                        "id": "editor.action.jumpToBracket",
+                        "label": "Go to &&Bracket"
+                    },
+                    {
+                        "id": "vscode.menubar.separator"
+                    },
+                    {
+                        "id": "editor.action.marker.nextInFiles",
+                        "label": "Next &&Problem"
+                    },
+                    {
+                        "id": "editor.action.marker.prevInFiles",
+                        "label": "Previous &&Problem"
+                    },
+                    {
+                        "id": "vscode.menubar.separator"
+                    },
+                    {
+                        "id": "editor.action.dirtydiff.next",
+                        "label": "Next &&Change"
+                    },
+                    {
+                        "id": "editor.action.dirtydiff.previous",
+                        "label": "Previous &&Change"
                     }
                 ]
             },
@@ -769,8 +839,7 @@
                     },
                     {
                         "id": "workbench.action.terminal.split",
-                        "label": "&&Split Terminal",
-                        "enabled": false
+                        "label": "&&Split Terminal"
                     },
                     {
                         "id": "vscode.menubar.separator"
@@ -830,7 +899,7 @@
                     },
                     {
                         "id": "workbench.action.showInteractivePlayground",
-                        "label": "&&Interactive Playground"
+                        "label": "I&&nteractive Playground"
                     },
                     {
                         "id": "workbench.action.openDocumentationUrl",
@@ -853,7 +922,7 @@
                     },
                     {
                         "id": "workbench.action.openTipsAndTricksUrl",
-                        "label": "&&Tips and Tricks"
+                        "label": "Tips and Tri&&cks"
                     },
                     {
                         "id": "vscode.menubar.separator"
@@ -879,7 +948,7 @@
                     },
                     {
                         "id": "workbench.action.openPrivacyStatementUrl",
-                        "label": "&&Privacy Statement"
+                        "label": "Privac&&y Statement"
                     },
                     {
                         "id": "vscode.menubar.separator"
@@ -904,320 +973,433 @@
         },
         "keybindings": {
             "workbench.action.files.newUntitledFile": {
-                "label": "Ctrl+N"
+                "label": "Ctrl+N",
+                "userSettingsLabel": "ctrl+n"
             },
             "workbench.action.newWindow": {
-                "label": "Ctrl+Shift+N"
+                "label": "Ctrl+Shift+N",
+                "userSettingsLabel": "ctrl+shift+n"
             },
             "workbench.action.files.openFile": {
-                "label": "Ctrl+O"
+                "label": "Ctrl+O",
+                "userSettingsLabel": "ctrl+o"
             },
             "workbench.action.files.openFolder": {
                 "label": "Ctrl+K Ctrl+O",
-                "isNative": false
+                "isNative": false,
+                "userSettingsLabel": "ctrl+k ctrl+o"
             },
             "workbench.action.reopenClosedEditor": {
-                "label": "Ctrl+Shift+T"
+                "label": "Ctrl+Shift+T",
+                "userSettingsLabel": "ctrl+shift+t"
             },
             "workbench.action.openRecent": {
-                "label": "Ctrl+R"
+                "label": "Ctrl+R",
+                "userSettingsLabel": "ctrl+r"
             },
             "workbench.action.files.save": {
-                "label": "Ctrl+S"
+                "label": "Ctrl+S",
+                "userSettingsLabel": "ctrl+s"
             },
             "workbench.action.files.saveAs": {
-                "label": "Ctrl+Shift+S"
+                "label": "Ctrl+Shift+S",
+                "userSettingsLabel": "ctrl+shift+s"
             },
             "workbench.action.openSettings": {
-                "label": "Ctrl+,"
+                "label": "Ctrl+,",
+                "userSettingsLabel": "ctrl+,"
             },
             "workbench.view.extensions": {
-                "label": "Ctrl+Shift+X"
+                "label": "Ctrl+Shift+X",
+                "userSettingsLabel": "ctrl+shift+x"
             },
             "workbench.action.openGlobalKeybindings": {
                 "label": "Ctrl+K Ctrl+S",
-                "isNative": false
+                "isNative": false,
+                "userSettingsLabel": "ctrl+k ctrl+s"
             },
             "workbench.extensions.action.showRecommendedKeymapExtensions": {
                 "label": "Ctrl+K Ctrl+M",
-                "isNative": false
+                "isNative": false,
+                "userSettingsLabel": "ctrl+k ctrl+m"
             },
             "workbench.action.selectTheme": {
                 "label": "Ctrl+K Ctrl+T",
-                "isNative": false
+                "isNative": false,
+                "userSettingsLabel": "ctrl+k ctrl+t"
             },
             "workbench.action.closeActiveEditor": {
-                "label": "Ctrl+W"
+                "label": "Ctrl+W",
+                "userSettingsLabel": "ctrl+w"
             },
             "workbench.action.closeFolder": {
                 "label": "Ctrl+K F",
-                "isNative": false
+                "isNative": false,
+                "userSettingsLabel": "ctrl+k f"
             },
             "workbench.action.closeWindow": {
-                "label": "Ctrl+Shift+W"
+                "label": "Ctrl+W",
+                "userSettingsLabel": "ctrl+w"
             },
             "workbench.action.quit": {
-                "label": "Ctrl+Q"
+                "label": "Ctrl+Q",
+                "userSettingsLabel": "ctrl+q"
             },
             "undo": {
-                "label": "Ctrl+Z"
+                "label": "Ctrl+Z",
+                "userSettingsLabel": "ctrl+z"
             },
             "redo": {
-                "label": "Ctrl+Y"
+                "label": "Ctrl+Y",
+                "userSettingsLabel": "ctrl+y"
             },
             "editor.action.clipboardCutAction": {
-                "label": "Ctrl+X"
+                "label": "Ctrl+X",
+                "userSettingsLabel": "ctrl+x"
             },
             "editor.action.clipboardCopyAction": {
-                "label": "Ctrl+C"
+                "label": "Ctrl+C",
+                "userSettingsLabel": "ctrl+c"
             },
             "editor.action.clipboardPasteAction": {
-                "label": "Ctrl+V"
+                "label": "Ctrl+V",
+                "userSettingsLabel": "ctrl+v"
             },
             "actions.find": {
-                "label": "Ctrl+F"
+                "label": "Ctrl+F",
+                "userSettingsLabel": "ctrl+f"
             },
             "editor.action.startFindReplaceAction": {
-                "label": "Ctrl+H"
+                "label": "Ctrl+H",
+                "userSettingsLabel": "ctrl+h"
             },
             "workbench.action.findInFiles": {
-                "label": "Ctrl+Shift+F"
+                "label": "Ctrl+Shift+F",
+                "userSettingsLabel": "ctrl+shift+f"
             },
             "workbench.action.replaceInFiles": {
-                "label": "Ctrl+Shift+H"
+                "label": "Ctrl+Shift+H",
+                "userSettingsLabel": "ctrl+shift+h"
             },
             "editor.action.commentLine": {
-                "label": "Ctrl+/"
+                "label": "Ctrl+/",
+                "userSettingsLabel": "ctrl+/"
             },
             "editor.action.blockComment": {
-                "label": "Ctrl+Shift+A"
+                "label": "Ctrl+Shift+A",
+                "userSettingsLabel": "ctrl+shift+a"
             },
             "editor.emmet.action.expandAbbreviation": {
-                "label": "Tab"
+                "label": "Tab",
+                "userSettingsLabel": "tab"
             },
             "editor.action.selectAll": {
-                "label": "Ctrl+A"
+                "label": "Ctrl+A",
+                "userSettingsLabel": "ctrl+a"
             },
-            "editor.action.smartSelect.grow": {
-                "label": "Shift+Alt+Right"
+            "editor.action.smartSelect.expand": {
+                "label": "Shift+Alt+Right",
+                "userSettingsLabel": "shift+alt+right"
             },
             "editor.action.smartSelect.shrink": {
-                "label": "Shift+Alt+Left"
+                "label": "Shift+Alt+Left",
+                "userSettingsLabel": "shift+alt+left"
             },
             "editor.action.copyLinesUpAction": {
-                "label": "Ctrl+Shift+Alt+Up"
+                "label": "Ctrl+Shift+Alt+Up",
+                "userSettingsLabel": "ctrl+shift+alt+up"
             },
             "editor.action.copyLinesDownAction": {
-                "label": "Ctrl+Shift+Alt+Down"
+                "label": "Ctrl+Shift+Alt+Down",
+                "userSettingsLabel": "ctrl+shift+alt+down"
             },
             "editor.action.moveLinesUpAction": {
-                "label": "Alt+Up"
+                "label": "Alt+Up",
+                "userSettingsLabel": "alt+up"
             },
             "editor.action.moveLinesDownAction": {
-                "label": "Alt+Down"
+                "label": "Alt+Down",
+                "userSettingsLabel": "alt+down"
             },
             "editor.action.insertCursorAbove": {
-                "label": "Shift+Alt+Up"
+                "label": "Shift+Alt+Up",
+                "userSettingsLabel": "shift+alt+up"
             },
             "editor.action.insertCursorBelow": {
-                "label": "Shift+Alt+Down"
+                "label": "Shift+Alt+Down",
+                "userSettingsLabel": "shift+alt+down"
             },
             "editor.action.insertCursorAtEndOfEachLineSelected": {
-                "label": "Shift+Alt+I"
+                "label": "Shift+Alt+I",
+                "userSettingsLabel": "shift+alt+i"
             },
             "editor.action.addSelectionToNextFindMatch": {
-                "label": "Ctrl+D"
+                "label": "Ctrl+D",
+                "userSettingsLabel": "ctrl+d"
             },
             "editor.action.selectHighlights": {
-                "label": "Ctrl+Shift+L"
+                "label": "Ctrl+Shift+L",
+                "userSettingsLabel": "ctrl+shift+l"
             },
             "workbench.action.showCommands": {
-                "label": "Ctrl+Shift+P"
+                "label": "Ctrl+Shift+P",
+                "userSettingsLabel": "ctrl+shift+p"
             },
             "workbench.action.toggleFullScreen": {
-                "label": "F11"
+                "label": "F11",
+                "userSettingsLabel": "f11"
             },
             "workbench.action.toggleZenMode": {
                 "label": "Ctrl+K Z",
-                "isNative": false
+                "isNative": false,
+                "userSettingsLabel": "ctrl+k z"
             },
             "workbench.action.toggleSidebarVisibility": {
-                "label": "Ctrl+B"
+                "label": "Ctrl+B",
+                "userSettingsLabel": "ctrl+b"
             },
             "workbench.action.togglePanel": {
-                "label": "Ctrl+J"
+                "label": "Ctrl+J",
+                "userSettingsLabel": "ctrl+j"
             },
             "workbench.action.zoomIn": {
-                "label": "Ctrl+="
+                "label": "Ctrl+=",
+                "userSettingsLabel": "ctrl+="
             },
             "workbench.action.zoomOut": {
-                "label": "Ctrl+-"
+                "label": "Ctrl+-",
+                "userSettingsLabel": "ctrl+-"
             },
             "workbench.action.zoomReset": {
                 "label": "Ctrl+NumPad0",
-                "isNative": false
+                "isNative": false,
+                "userSettingsLabel": "ctrl+numpad0"
             },
             "workbench.action.toggleEditorGroupLayout": {
-                "label": "Shift+Alt+0"
+                "label": "Shift+Alt+0",
+                "userSettingsLabel": "shift+alt+0"
             },
             "workbench.view.explorer": {
-                "label": "Ctrl+Shift+E"
+                "label": "Ctrl+Shift+E",
+                "userSettingsLabel": "ctrl+shift+e"
             },
             "workbench.view.search": {
-                "label": "Ctrl+Shift+F"
+                "label": "Ctrl+Shift+F",
+                "userSettingsLabel": "ctrl+shift+f"
             },
             "workbench.view.scm": {
-                "label": "Ctrl+Shift+G"
+                "label": "Ctrl+Shift+G",
+                "userSettingsLabel": "ctrl+shift+g"
             },
             "workbench.view.debug": {
-                "label": "Ctrl+Shift+D"
+                "label": "Ctrl+Shift+D",
+                "userSettingsLabel": "ctrl+shift+d"
             },
             "workbench.action.output.toggleOutput": {
                 "label": "Ctrl+K Ctrl+H",
-                "isNative": false
+                "isNative": false,
+                "userSettingsLabel": "ctrl+k ctrl+h"
             },
             "workbench.debug.action.toggleRepl": {
-                "label": "Ctrl+Shift+Y"
+                "label": "Ctrl+Shift+Y",
+                "userSettingsLabel": "ctrl+shift+y"
             },
             "workbench.action.terminal.toggleTerminal": {
-                "label": "Ctrl+`"
+                "label": "Ctrl+`",
+                "userSettingsLabel": "ctrl+`"
             },
             "workbench.actions.view.problems": {
-                "label": "Ctrl+Shift+M"
+                "label": "Ctrl+Shift+M",
+                "userSettingsLabel": "ctrl+shift+m"
             },
             "editor.action.toggleWordWrap": {
-                "label": "Alt+Z"
+                "label": "Alt+Z",
+                "userSettingsLabel": "alt+z"
             },
             "workbench.action.navigateBack": {
-                "label": "Ctrl+Alt+-"
+                "label": "Ctrl+Alt+-",
+                "userSettingsLabel": "ctrl+alt+-"
             },
             "workbench.action.navigateForward": {
-                "label": "Ctrl+Shift+-"
+                "label": "Ctrl+Shift+-",
+                "userSettingsLabel": "ctrl+shift+-"
+            },
+            "workbench.action.navigateToLastEditLocation": {
+                "label": "Ctrl+K Ctrl+Q",
+                "isNative": false,
+                "userSettingsLabel": "ctrl+k ctrl+q"
             },
             "workbench.action.nextEditor": {
-                "label": "Ctrl+PageDown"
+                "label": "Ctrl+PageDown",
+                "userSettingsLabel": "ctrl+pagedown"
             },
             "workbench.action.previousEditor": {
-                "label": "Ctrl+PageUp"
+                "label": "Ctrl+PageUp",
+                "userSettingsLabel": "ctrl+pageup"
             },
             "workbench.action.openNextRecentlyUsedEditorInGroup": {
-                "label": "Ctrl+Tab"
+                "label": "Ctrl+Tab",
+                "userSettingsLabel": "ctrl+tab"
             },
             "workbench.action.openPreviousRecentlyUsedEditorInGroup": {
-                "label": "Ctrl+Shift+Tab"
+                "label": "Ctrl+Shift+Tab",
+                "userSettingsLabel": "ctrl+shift+tab"
             },
             "workbench.action.focusFirstEditorGroup": {
-                "label": "Ctrl+1"
+                "label": "Ctrl+1",
+                "userSettingsLabel": "ctrl+1"
             },
             "workbench.action.focusSecondEditorGroup": {
-                "label": "Ctrl+2"
+                "label": "Ctrl+2",
+                "userSettingsLabel": "ctrl+2"
             },
             "workbench.action.focusThirdEditorGroup": {
-                "label": "Ctrl+3"
+                "label": "Ctrl+3",
+                "userSettingsLabel": "ctrl+3"
             },
             "workbench.action.focusFourthEditorGroup": {
-                "label": "Ctrl+4"
+                "label": "Ctrl+4",
+                "userSettingsLabel": "ctrl+4"
             },
             "workbench.action.focusFifthEditorGroup": {
-                "label": "Ctrl+5"
+                "label": "Ctrl+5",
+                "userSettingsLabel": "ctrl+5"
             },
             "workbench.action.focusLeftGroup": {
                 "label": "Ctrl+K Ctrl+LeftArrow",
-                "isNative": false
+                "isNative": false,
+                "userSettingsLabel": "ctrl+k ctrl+left"
             },
             "workbench.action.focusRightGroup": {
                 "label": "Ctrl+K Ctrl+RightArrow",
-                "isNative": false
+                "isNative": false,
+                "userSettingsLabel": "ctrl+k ctrl+right"
             },
             "workbench.action.focusAboveGroup": {
                 "label": "Ctrl+K Ctrl+UpArrow",
-                "isNative": false
+                "isNative": false,
+                "userSettingsLabel": "ctrl+k ctrl+up"
             },
             "workbench.action.focusBelowGroup": {
                 "label": "Ctrl+K Ctrl+DownArrow",
-                "isNative": false
+                "isNative": false,
+                "userSettingsLabel": "ctrl+k ctrl+down"
             },
             "workbench.action.quickOpen": {
-                "label": "Ctrl+P"
-            },
-            "workbench.action.gotoSymbol": {
-                "label": "Ctrl+Shift+O"
+                "label": "Ctrl+P",
+                "userSettingsLabel": "ctrl+p"
             },
             "workbench.action.showAllSymbols": {
-                "label": "Ctrl+T"
+                "label": "Ctrl+T",
+                "userSettingsLabel": "ctrl+t"
             },
-            "editor.action.goToDeclaration": {
-                "label": "F12"
+            "workbench.action.gotoSymbol": {
+                "label": "Ctrl+Shift+O",
+                "userSettingsLabel": "ctrl+shift+o"
             },
             "editor.action.goToImplementation": {
-                "label": "Ctrl+F12"
+                "label": "Ctrl+F12",
+                "userSettingsLabel": "ctrl+f12"
             },
             "workbench.action.gotoLine": {
-                "label": "Ctrl+G"
+                "label": "Ctrl+G",
+                "userSettingsLabel": "ctrl+g"
+            },
+            "editor.action.jumpToBracket": {
+                "label": "Ctrl+Shift+\\",
+                "userSettingsLabel": "ctrl+shift+\\"
+            },
+            "editor.action.marker.nextInFiles": {
+                "label": "F8",
+                "userSettingsLabel": "f8"
+            },
+            "editor.action.marker.prevInFiles": {
+                "label": "Shift+F8",
+                "userSettingsLabel": "shift+f8"
+            },
+            "editor.action.dirtydiff.next": {
+                "label": "Alt+F3",
+                "userSettingsLabel": "alt+f3"
+            },
+            "editor.action.dirtydiff.previous": {
+                "label": "Shift+Alt+F3",
+                "userSettingsLabel": "shift+alt+f3"
             },
             "workbench.action.debug.start": {
-                "label": "F5"
+                "label": "F5",
+                "userSettingsLabel": "f5"
             },
             "workbench.action.debug.run": {
-                "label": "Ctrl+F5"
+                "label": "Ctrl+F5",
+                "userSettingsLabel": "ctrl+f5"
             },
             "workbench.action.debug.stop": {
-                "label": "Shift+F5"
+                "label": "Shift+F5",
+                "userSettingsLabel": "shift+f5"
             },
             "workbench.action.debug.restart": {
-                "label": "Ctrl+Shift+F5"
+                "label": "Ctrl+Shift+F5",
+                "userSettingsLabel": "ctrl+shift+f5"
             },
             "workbench.action.debug.stepOver": {
-                "label": "F10"
+                "label": "F10",
+                "userSettingsLabel": "f10"
             },
             "workbench.action.debug.stepInto": {
-                "label": "F11"
+                "label": "F11",
+                "userSettingsLabel": "f11"
             },
             "workbench.action.debug.stepOut": {
-                "label": "Shift+F11"
+                "label": "Shift+F11",
+                "userSettingsLabel": "shift+f11"
             },
             "workbench.action.debug.continue": {
-                "label": "F5"
+                "label": "F5",
+                "userSettingsLabel": "f5"
             },
             "editor.debug.action.toggleBreakpoint": {
-                "label": "F9"
+                "label": "F9",
+                "userSettingsLabel": "f9"
             },
             "editor.debug.action.toggleInlineBreakpoint": {
-                "label": "Shift+F9"
+                "label": "Shift+F9",
+                "userSettingsLabel": "shift+f9"
             },
             "workbench.action.terminal.new": {
-                "label": "Ctrl+Shift+`"
+                "label": "Ctrl+Shift+`",
+                "userSettingsLabel": "ctrl+shift+`"
             },
             "workbench.action.terminal.split": {
-                "label": "Ctrl+\\"
+                "label": "Ctrl+\\",
+                "userSettingsLabel": "ctrl+\\"
             },
             "workbench.action.tasks.build": {
-                "label": "Ctrl+Shift+B"
+                "label": "Ctrl+Shift+B",
+                "userSettingsLabel": "ctrl+shift+b"
             },
             "workbench.action.keybindingsReference": {
                 "label": "Ctrl+K Ctrl+R",
-                "isNative": false
+                "isNative": false,
+                "userSettingsLabel": "ctrl+k ctrl+r"
+            },
+            "workbench.action.toggleDevTools": {
+                "label": "Ctrl+Shift+I",
+                "userSettingsLabel": "ctrl+shift+i"
             }
         }
     },
     "windowsState": {
-        "openedWindows": [],
         "lastActiveWindow": {
-            "folderUri": {
-                "$mid": 1,
-                "fsPath": "/home/cjtu",
-                "external": "file:///home/cjtu",
-                "path": "/home/cjtu",
-                "scheme": "file"
-            },
-            "backupPath": "/home/cjtu/.config/Code/Backups/b010695ed63037db680fc7d8de5f03c5",
+            "backupPath": "/home/ctaiudovicic/.config/Code/Backups/1556573113040",
             "uiState": {
                 "mode": 1,
-                "x": 256,
-                "y": 48,
-                "width": 1024,
-                "height": 768
+                "x": 92,
+                "y": 78,
+                "width": 983,
+                "height": 1041
             }
-        }
-    }
+        },
+        "openedWindows": []
+    },
+    "pickerWorkingDir": "/home/ctaiudovicic/projects"
 }
