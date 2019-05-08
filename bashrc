@@ -185,6 +185,7 @@ if [[ $HOSTNAME = 'luna' ]]; then
     alias code="/mnt/c/Users/cjtai/AppData/Local/Programs/Microsoft\ VS\ Code/Code.exe"
     alias ffs="/mnt/c/Program\ Files/FreeFileSync/FreeFileSync.exe"
     export DISPLAY=localhost:0.0
+    PS1='${debian_chroot:+($debian_chroot)}\[\033[01;32m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\w\[\033[00m\]\$ ' 
 fi
 
 # added by Anaconda3 installer
