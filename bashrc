@@ -181,6 +181,7 @@ export PATH=$HOME/gems/bin:$PATH
 # Monsoon aliases
 alias js="jobstats -u cjt347"
 alias sq="squeue -u cjt347"
+alias rcl="module load rclone; rclone sync -L . gdrive:/homedrive"
 
 # Start in WSL and fix XTERM
 if [[ $HOSTNAME = 'luna' ]]; then
