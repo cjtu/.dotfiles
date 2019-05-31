@@ -160,7 +160,8 @@ bar {
 }
 
 # Custom bindings
-bindsym $mod+z exec ~/bin/opt/google/chrome/google-chrome
+bindsym $mod+z exec/usr/bin/firefox 
+#bindsym $mod+z exec ~/bin/opt/google/chrome/google-chrome
 #bindsym XF86MonBrightnessDown exec --no-startup-id xbacklight -5
 #bindsym XF86MonBrightnessUp exec --no-startup-id xbacklight +5
 #bindsym $mod+F5 exec --no-startup-id xbacklight -5
