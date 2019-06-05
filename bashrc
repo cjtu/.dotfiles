@@ -124,6 +124,9 @@ if ! shopt -oq posix; then
   fi
 fi
 
+# Fix dumb Ctrl-S behaviour
+stty -ixon
+
 # environment variables
 export INPUTRC="~/.inputrc"
 alias davinci="davinci -l ~/.dvlog"
