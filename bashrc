@@ -147,7 +147,7 @@ alias chrome='~/bin/opt/google/chrome/google-chrome'
 alias cdp='cd ~/projects'
 alias cdc='cd /mnt/c/Users/cjtai/'
 alias cda='cd /common/contrib/classroom/ast520/tess_batman'
-alias cdd='cd /nfs/data/'
+alias cdd='cd /work/ctaiudovicic/data/'
 alias g=git
 #alias vpn='sudo openvpn --config /etc/openvpn/nau_mars_vpn.ovpn'
 alias serve='bundle exec jekyll serve'
@@ -196,7 +196,7 @@ if [[ $HOSTNAME = 'luna' ]]; then
 fi
 
 # added by Anaconda3 installer
-export PATH="/home/ctaiudovicic/anaconda3/bin:$PATH"
+# export PATH="/home/ctaiudovicic/anaconda3/bin:$PATH"  # commented out by conda initialize
 
 # added by Anaconda3 5.3.1 installer
 # >>> conda init >>>
@@ -206,7 +206,7 @@ if [ $? -eq 0 ]; then
     \eval "$__conda_setup"
 else
     if [ -f "/home/cjtu/anaconda3/etc/profile.d/conda.sh" ]; then
-        . "/home/cjtu/anaconda3/etc/profile.d/conda.sh"
+# . "/home/cjtu/anaconda3/etc/profile.d/conda.sh"  # commented out by conda initialize
         CONDA_CHANGEPS1=false conda activate base
     else
         \export PATH="/home/cjtu/anaconda3/bin:$PATH"
@@ -214,3 +214,19 @@ else
 fi
 unset __conda_setup
 # <<< conda init <<<
+
+# >>> conda initialize >>>
+# !! Contents within this block are managed by 'conda init' !!
+__conda_setup="$('/home/ctaiudovicic/anaconda3/bin/conda' 'shell.bash' 'hook' 2> /dev/null)"
+if [ $? -eq 0 ]; then
+    eval "$__conda_setup"
+else
+    if [ -f "/home/ctaiudovicic/anaconda3/etc/profile.d/conda.sh" ]; then
+        . "/home/ctaiudovicic/anaconda3/etc/profile.d/conda.sh"
+    else
+        export PATH="/home/ctaiudovicic/anaconda3/bin:$PATH"
+    fi
+fi
+unset __conda_setup
+# <<< conda initialize <<<
+
