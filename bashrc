@@ -143,12 +143,18 @@ export DTN="dtn1.hpc.nau.edu"
 export DIVINER="luna1.diviner.ucla.edu"
 
 # aliases
+# Use GitHub's git wrapper if it exists (https://github.com/github/hub)
+if hash hub 2>/dev/null; then
+    alias g=hub
+else
+    alias g=git
+fi
+
 alias chrome='~/bin/opt/google/chrome/google-chrome'
 alias cdp='cd ~/projects'
 alias cdc='cd /mnt/c/Users/cjtai/'
 alias cda='cd /common/contrib/classroom/ast520/tess_batman'
 alias cdd='cd /work/ctaiudovicic/data/'
-alias g=git
 #alias vpn='sudo openvpn --config /etc/openvpn/nau_mars_vpn.ovpn'
 alias serve='bundle exec jekyll serve'
 alias env1='source activate env1'
@@ -217,14 +223,14 @@ unset __conda_setup
 
 # >>> conda initialize >>>
 # !! Contents within this block are managed by 'conda init' !!
-__conda_setup="$('/home/ctaiudovicic/anaconda3/bin/conda' 'shell.bash' 'hook' 2> /dev/null)"
+__conda_setup="$('/home/cjtu/anaconda3/bin/conda' 'shell.bash' 'hook' 2> /dev/null)"
 if [ $? -eq 0 ]; then
     eval "$__conda_setup"
 else
-    if [ -f "/home/ctaiudovicic/anaconda3/etc/profile.d/conda.sh" ]; then
-        . "/home/ctaiudovicic/anaconda3/etc/profile.d/conda.sh"
+    if [ -f "/home/cjtu/anaconda3/etc/profile.d/conda.sh" ]; then
+        . "/home/cjtu/anaconda3/etc/profile.d/conda.sh"
     else
-        export PATH="/home/ctaiudovicic/anaconda3/bin:$PATH"
+        export PATH="/home/cjtu/anaconda3/bin:$PATH"
     fi
 fi
 unset __conda_setup
