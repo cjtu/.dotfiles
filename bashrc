@@ -132,6 +132,7 @@ export INPUTRC="~/.inputrc"
 alias davinci="davinci -l ~/.dvlog"
 export HISTIGNORE="&:ls:[bf]g:d[fu]:exit"
 export CDPATH='.:~'
+export BROWSER='/mnt/c/Windows/explorer.exe'
 
 # variables
 export SSH_ID="ctaiudovicic"
