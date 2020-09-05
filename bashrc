@@ -61,21 +61,9 @@ fi
 if [[ $TERM =~ "256color" ]]; then
     # Host colors between 16 and 256, but only grayscale after 201
     host_color="38;5;$((16 + 72 + $(hostname | cksum | cut -c1-3) % 216-72))";
-    #host_color="38;5;$((16 + $(hostname | cksum | cut -c1-3) % 216))";
-    #host_color="38;5;$((16 + 12 * ($(hostname | cksum | cut -c1-3) % 12)))";
-
 else
     host_color="1;$((31 + $(hostname | cksum | cut -c1-3) % 6))";
 fi
-
-if [ "$color_prompt" = yes ]; then
-    PS1='${debian_chroot:+($debian_chroot)}\[\033[${host_color}m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\w\[\033[00m\]\$ '
-#    PS1='${debian_chroot:+($debian_chroot)}\[\033[01;32m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\w\[\033[00m\]\$ '
-else
-    PS1='${debian_chroot:+($debian_chroot)}\u@\h:\w\$ '
-fi
-unset color_prompt force_color_prompt 
-
 
 # If this is an xterm set the title to user@host:dir
 case "$TERM" in
@@ -193,14 +181,29 @@ alias js="jobstats -u cjt347"
 alias sq="squeue -u cjt347"
 alias rcl="module load rclone; rclone sync -L . gdrive:/homedrive"
 
+
+parse_git_branch() {
+    git branch 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/ (\1)/'
+}
+
 # Start in WSL and fix XTERM
 if [[ $HOSTNAME = 'luna' ]]; then
     alias chrome="/mnt/c/Program\ Files\ \(x86\)/Google/Chrome/Application/chrome.exe"
     alias code="/mnt/c/Users/cjtai/AppData/Local/Programs/Microsoft\ VS\ Code/Code.exe"
     alias ffs="/mnt/c/Program\ Files/FreeFileSync/FreeFileSync.exe"
-    export DISPLAY=localhost:0.0
-    PS1='${debian_chroot:+($debian_chroot)}\[\033[01;32m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\w\[\033[00m\]\$ ' 
+    export DISPLAY=$(cat /etc/resolv.conf | grep nameserver | awk '{print $2; exit;}'):0
+    # For WSL2, install VcXsrV and add following command to registry
+    # reg add "HKCU\Software\Microsoft\Windows\CurrentVersion\Run" /V VcxSrv /D "C:\Program Files\VcXsrv\vcxsrv.exe -ac -multiwindow -clipboard -wgl"
+    host_color="1;32"
 fi
+
+# Set up prompt color 
+if [ "$color_prompt" = yes ]; then
+    PS1='${debian_chroot:+($debian_chroot)}\[\033[${host_color}m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\w\[\033[00m\]\[\e[91m\]$(parse_git_branch)\[\e[00m\]$ '
+else
+    PS1='${debian_chroot:+($debian_chroot)}\u@\h:\w\$ '
+fi
+unset color_prompt force_color_prompt 
 
 # added by Anaconda3 installer
 # export PATH="/home/ctaiudovicic/anaconda3/bin:$PATH"  # commented out by conda initialize
@@ -224,14 +227,14 @@ unset __conda_setup
 
 # >>> conda initialize >>>
 # !! Contents within this block are managed by 'conda init' !!
-__conda_setup="$('/home/cjtu/anaconda3/bin/conda' 'shell.bash' 'hook' 2> /dev/null)"
+__conda_setup="$('/home/cjtu/miniconda3/bin/conda' 'shell.bash' 'hook' 2> /dev/null)"
 if [ $? -eq 0 ]; then
     eval "$__conda_setup"
 else
-    if [ -f "/home/cjtu/anaconda3/etc/profile.d/conda.sh" ]; then
-        . "/home/cjtu/anaconda3/etc/profile.d/conda.sh"
+    if [ -f "/home/cjtu/miniconda3/etc/profile.d/conda.sh" ]; then
+        . "/home/cjtu/miniconda3/etc/profile.d/conda.sh"
     else
-        export PATH="/home/cjtu/anaconda3/bin:$PATH"
+        export PATH="/home/cjtu/miniconda3/bin:$PATH"
     fi
 fi
 unset __conda_setup
