@@ -139,10 +139,9 @@ else
     alias g=git
 fi
 
-alias chrome='~/bin/opt/google/chrome/google-chrome'
+alias chrome='google-chrome'
 alias cdp='cd ~/projects'
 alias cdc='cd /mnt/c/Users/cjtai/'
-alias cda='cd /common/contrib/classroom/ast520/tess_batman'
 alias cdd='cd /work/ctaiudovicic/data/'
 #alias vpn='sudo openvpn --config /etc/openvpn/nau_mars_vpn.ovpn'
 alias serve='bundle exec jekyll serve'
@@ -173,31 +172,44 @@ alias gccanal='gccwarn -Wduplicated-cond -Wduplicated-branches -Wlogical-op -Wre
 export PATH="/nfs/software/davinci_install/share/davinci/library/bin:$PATH"
 export PATH="$PATH:~/.scripts"
 export PATH="$PATH:$HOME/bin"
-export GEM_HOME=$HOME/gems
-export PATH=$HOME/gems/bin:$PATH
+export PATH="/usr/local/texlive/2022/bin/x86_64-linux:$PATH"
 
 # Monsoon aliases
 alias js="jobstats -u cjt347"
 alias sq="squeue -u cjt347"
 alias rcl="module load rclone; rclone sync -L . gdrive:/homedrive"
 
-
-parse_git_branch() {
-    git branch 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/ (\1)/'
-}
-
 # Start in WSL and fix XTERM
 if [[ $HOSTNAME = 'luna' ]]; then
-    alias chrome="/mnt/c/Program\ Files\ \(x86\)/Google/Chrome/Application/chrome.exe"
-    alias code="/mnt/c/Users/cjtai/AppData/Local/Programs/Microsoft\ VS\ Code/Code.exe"
-    alias ffs="/mnt/c/Program\ Files/FreeFileSync/FreeFileSync.exe"
     export DISPLAY=$(cat /etc/resolv.conf | grep nameserver | awk '{print $2; exit;}'):0
     # For WSL2, install VcXsrV and add following command to registry
     # reg add "HKCU\Software\Microsoft\Windows\CurrentVersion\Run" /V VcxSrv /D "C:\Program Files\VcXsrv\vcxsrv.exe -ac -multiwindow -clipboard -wgl"
     host_color="1;32"
+    # Mount USB drive from E: to /mnt/e or silently fail 
+    #wsl.exe -u root -e mount -t drvfs e: /mnt/e -o uid=1000,gid=1000,metadata > /dev/null 2>&1
+    # Open links in system browser, mount external drives. Requires wslu https://wslutiliti.es/wslu/
+    export BROWSER=wslview
+    alias automount wslact auto-mount
+    # >>> conda initialize >>>
+    # !! Contents within this block are managed by 'conda init' !!
+    __conda_setup="$('/home/cjtu/miniconda3/bin/conda' 'shell.bash' 'hook' 2> /dev/null)"
+    if [ $? -eq 0 ]; then
+        eval "$__conda_setup"
+    else
+        if [ -f "/home/cjtu/miniconda3/etc/profile.d/conda.sh" ]; then
+            . "/home/cjtu/miniconda3/etc/profile.d/conda.sh"
+        else
+            export PATH="/home/cjtu/miniconda3/bin:$PATH"
+        fi
+    fi
+    unset __conda_setup
+    # <<< conda initialize <<<
 fi
 
 # Set up prompt color 
+parse_git_branch() {
+    git branch 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/ (\1)/'
+}
 if [ "$color_prompt" = yes ]; then
     PS1='${debian_chroot:+($debian_chroot)}\[\033[${host_color}m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\w\[\033[00m\]\[\e[91m\]$(parse_git_branch)\[\e[00m\]$ '
 else
@@ -205,38 +217,10 @@ else
 fi
 unset color_prompt force_color_prompt 
 
-# added by Anaconda3 installer
-# export PATH="/home/ctaiudovicic/anaconda3/bin:$PATH"  # commented out by conda initialize
+# Install Ruby Gems to ~/gems
+export GEM_HOME="$HOME/gems"
+export PATH="$HOME/gems/bin:$PATH"
+export PATH="$HOME/.local/bin:$PATH"
 
-# added by Anaconda3 5.3.1 installer
-# >>> conda init >>>
-# !! Contents within this block are managed by 'conda init' !!
-__conda_setup="$(CONDA_REPORT_ERRORS=false '/home/cjtu/anaconda3/bin/conda' shell.bash hook 2> /dev/null)"
-if [ $? -eq 0 ]; then
-    \eval "$__conda_setup"
-else
-    if [ -f "/home/cjtu/anaconda3/etc/profile.d/conda.sh" ]; then
-# . "/home/cjtu/anaconda3/etc/profile.d/conda.sh"  # commented out by conda initialize
-        CONDA_CHANGEPS1=false conda activate base
-    else
-        \export PATH="/home/cjtu/anaconda3/bin:$PATH"
-    fi
-fi
-unset __conda_setup
-# <<< conda init <<<
-
-# >>> conda initialize >>>
-# !! Contents within this block are managed by 'conda init' !!
-__conda_setup="$('/home/cjtu/miniconda3/bin/conda' 'shell.bash' 'hook' 2> /dev/null)"
-if [ $? -eq 0 ]; then
-    eval "$__conda_setup"
-else
-    if [ -f "/home/cjtu/miniconda3/etc/profile.d/conda.sh" ]; then
-        . "/home/cjtu/miniconda3/etc/profile.d/conda.sh"
-    else
-        export PATH="/home/cjtu/miniconda3/bin:$PATH"
-    fi
-fi
-unset __conda_setup
-# <<< conda initialize <<<
-
+# Julia
+export PATH="$HOME/julia-1.9.3/bin:$PATH"

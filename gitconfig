@@ -1,5 +1,5 @@
 [user]
-	name = Christian Tai Udovicic
+	name = Christian J. Tai Udovicic
 	email = cj.taiudovicic@gmail.com
 [alias]
 	st = status
@@ -23,8 +23,5 @@
 
 [color]
 	ui = auto
-[filter "lfs"]
-	required = true
-	clean = git-lfs clean -- %f
-	smudge = git-lfs smudge -- %f
-	process = git-lfs filter-process
+[init]
+	defaultBranch = main
