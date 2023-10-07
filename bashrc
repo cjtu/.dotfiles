@@ -206,6 +206,28 @@ if [[ $HOSTNAME = 'luna' ]]; then
     # <<< conda initialize <<<
 fi
 
+# Ubuntu on Hokule'a
+if [[ $HOSTNAME = 'hokulea' ]]; then
+# >>> conda initialize >>>
+# !! Contents within this block are managed by 'conda init' !!
+__conda_setup="$('/home/cjtu/miniforge3/bin/conda' 'shell.bash' 'hook' 2> /dev/null)"
+if [ $? -eq 0 ]; then
+    eval "$__conda_setup"
+else
+    if [ -f "/home/cjtu/miniforge3/etc/profile.d/conda.sh" ]; then
+	. "/home/cjtu/miniforge3/etc/profile.d/conda.sh"
+    else
+	export PATH="/home/cjtu/miniforge3/bin:$PATH"
+    fi
+fi
+unset __conda_setup
+
+if [ -f "/home/cjtu/miniforge3/etc/profile.d/mamba.sh" ]; then
+    . "/home/cjtu/miniforge3/etc/profile.d/mamba.sh"
+fi
+# <<< conda initialize <<<
+fi
+
 # Set up prompt color 
 parse_git_branch() {
     git branch 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/ (\1)/'
@@ -223,4 +245,4 @@ export PATH="$HOME/gems/bin:$PATH"
 export PATH="$HOME/.local/bin:$PATH"
 
 # Julia
-export PATH="$HOME/julia-1.9.3/bin:$PATH"
+export PATH="$HOME/julia-1.8.5/bin:$PATH"

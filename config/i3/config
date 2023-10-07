@@ -76,6 +76,7 @@ bindsym $mod+v split v
 bindsym $mod+f fullscreen toggle
 
 # change container layout (stacked, tabbed, toggle split)
+workspace_layout tabbed
 bindsym $mod+s layout stacking
 bindsym $mod+w layout tabbed
 bindsym $mod+e layout toggle split
@@ -160,17 +161,20 @@ bar {
 }
 
 # Custom bindings
-bindsym $mod+z exec/usr/bin/firefox 
-#bindsym $mod+z exec ~/bin/opt/google/chrome/google-chrome
+#bindsym $mod+z exec/usr/bin/firefox 
+bindsym $mod+z exec --no-startup-id google-chrome
+bindsym $mod+o exec --no-startup-id Obsidian.AppImage
 #bindsym XF86MonBrightnessDown exec --no-startup-id xbacklight -5
 #bindsym XF86MonBrightnessUp exec --no-startup-id xbacklight +5
 #bindsym $mod+F5 exec --no-startup-id xbacklight -5
 #bindsym $mod+F6 exec --no-startup-id xbacklight +5
-bindsym XF86AudioRaiseVolume exec --no-startup-id "pactl set-sink-mute @DEFAULT_SINK@ 0 && pactl set-sink-volume @DEFAULT_SINK@ +10%"
-bindsym XF86AudioLowerVolume exec --no-startup-id "pactl set-sink-mute @DEFAULT_SINK@ 0 && pactl set-sink-volume @DEFAULT_SINK@ -10%"
-bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute @DEFAULT_SINK@ toggle
-bindsym $mod+XF86AudioMute exec --no-startup-id toggleaudiodevice
+#bindsym XF86AudioRaiseVolume exec --no-startup-id "pactl set-sink-mute @DEFAULT_SINK@ 0 && pactl set-sink-volume @DEFAULT_SINK@ +10%"
+#bindsym XF86AudioLowerVolume exec --no-startup-id "pactl set-sink-mute @DEFAULT_SINK@ 0 && pactl set-sink-volume @DEFAULT_SINK@ -10%"
+#bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute @DEFAULT_SINK@ toggle
+#bindsym $mod+XF86AudioMute exec --no-startup-id toggleaudiodevice
 
+# Set pcmanfm as file manager
+exec --no-startup-id pcmanfm -d
 
 # Fix scrolling
 exec --no-startup-id synclient NaturalScrolling=1 VertScrollDelta=-113
@@ -178,8 +182,8 @@ exec --no-startup-id synclient NaturalScrolling=1 VertScrollDelta=-113
 # Shutdown mode
 set $mode_system System (l) lock, (q) logout, (ESC) to cancel
 mode "$mode_system" {
-    bindsym l exec --no-startup-id /usr/bin/gnome-screensaver-command -l, mode "default"
-    bindsym q exit
+    bindsym l exec --no-startup-id i3lock -fec 04090e -i ~/Pictures/screensaver.png, mode "default"
+    bindsym q exit, mode "default"
     #bindsym l exec --no-startup-id ~/.config/i3/i3exit lock, mode "default"
     #bindsym s exec --no-startup-id ~/.config/i3/i3exit suspend, mode "default"
     #bindsym r exec --no-startup-id ~/.config/i3/i3exit reboot, mode "default"
