@@ -43,6 +43,12 @@ parse_git_branch() {
 case "$TERM" in
     xterm-color|*-256color) color_prompt=yes;;
 esac
+if [[ $TERM =~ "256color" ]]; then
+    # Host colors between 16 and 256, but only grayscale after 201
+    host_color="38;5;$((16 + 72 + $(hostname | cksum | cut -c1-3) % 216-72))";
+else
+    host_color="1;$((31 + $(hostname | cksum | cut -c1-3) % 6))";
+fi
 if [ "$color_prompt" = yes ]; then
     PS1='${debian_chroot:+($debian_chroot)}\[\033[${host_color}m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\w\[\033[00m\]\[\e[91m\]$(parse_git_branch)\[\e[00m\]$ '
 else
