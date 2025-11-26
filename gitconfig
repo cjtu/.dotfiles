@@ -3,7 +3,6 @@
 	email = cj.taiudovicic@gmail.com
 [alias]
 	st = status
-	su = submodule update
 	co = checkout
 	cm = commit -m
 	ca = commit --amend --no-edit
@@ -12,15 +11,12 @@
 	lp = log -5 --graph --pretty=format:\"%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset\"
 	ra = rebase --abort
 	rc = rebase --continue
-	rd = rebase origin/dev
-	re = rebase origin/experimental
 	br = branch
-
 [push]
 	default = simple
 [core]
+	autocrlf = input
 	editor = vim
-
 [color]
 	ui = auto
 [init]

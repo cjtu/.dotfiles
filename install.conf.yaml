@@ -9,15 +9,9 @@
   - mkdir -p ~/.vim
 
 - link:
-    ~/.bashrc: bashrc
-    ~/.bash_profile: bash_profile
-    ~/.gitconfig: gitconfig
+    ~/.bash_aliases: bash_aliases
     ~/.dvrc: dvrc
-    ~/.vimrc: vimrc
-    ~/.vim/: 
-      glob: true
-      path: vim/*
-      relink: true
+    ~/.gitconfig: gitconfig
     ~/.config/:
       glob: true
       path: config/*
