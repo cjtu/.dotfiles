@@ -112,5 +112,13 @@ nnoremap <leader>c <Plug>CommentaryLine
 " Let ctrlp have up to 30 results.
 let g:ctrlp_max_height = 30
 
-colorscheme molokai
+try
+  colorscheme codedark
+catch /^Vim\%((\a\+)\)\=:E185/
+  colorscheme default
+  set background=dark
+catch /^Vim\%((\a\+)\)\=:E121/
+  colorscheme default
+  set background=dark
+endtry
 

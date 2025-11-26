@@ -16,7 +16,12 @@
       glob: true
       path: config/*
       relink: true
+    ~/.vimrc: vimrc
+    ~/.vim/: 
+      glob: true
+      path: vim/*
+      relink: true
 
 - shell:
   - [git submodule update --init --recursive, Installing submodules]
-  - vim +PluginInstall +qall
+  - [vim +PluginInstall +qall]
